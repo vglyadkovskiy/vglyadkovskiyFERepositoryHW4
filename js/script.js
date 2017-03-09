@@ -72,18 +72,12 @@ function clickButtonDot(){
                })
 }
 
-function clickOperation(operationButton){
+function calculation(){
    
-            operationButton.click(function(){
-                  if (operation == null){
-                     tmp = Number(screen.val());
-                     operation = operationButton.val();   
-                     t = operation;
-                  }
-                  else {
+             if (operation != null){
                      switch (operation){
                         case "*":
-                           screen.val(tmp * Number(screen.val())); 
+                           screen.val(tmp * Number(screen.val()));
                            break;
                         case "/":
                            if (Number(screen.val()) != 0){
@@ -95,39 +89,30 @@ function clickOperation(operationButton){
                            screen.val(tmp + Number(screen.val()));
                            break;
                         case "-":
-                           screen.val(tmp - Number(screen.val()));                       
-                           break;  
+                           screen.val(tmp - Number(screen.val()));
+                           break;                    
                      }
-                     operation = operationButton.val();
+                     t = operation;
+                  }  
+}
+
+function clickOperation(operationButton){
+   
+            operationButton.click(function(){
+               
+                  if (operation == null) {
                      tmp = Number(screen.val());
-                     t = operation;   
-                  } 
+                     operation = operationButton.val();   
+                     t = operation;
+                  }
+                  else calculation();
             })               
 }
 
 function clickEqualsButton(){
    
-            bEq.click(function(){
-               if (operation != null){
-                  switch (operation){
-                     case "*":
-                        screen.val(tmp * Number(screen.val()));
-                        break;
-                     case "/":
-                        if (Number(screen.val()) != 0){
-                        screen.val(tmp / Number(screen.val()));}
-                        else {
-                        screen.val("Error, you can't divide by zero )");}
-                        break;
-                     case "+":
-                        screen.val(tmp + Number(screen.val()));
-                        break;
-                     case "-":
-                        screen.val(tmp - Number(screen.val()));
-                        break;                    
-                  }
-                  t = operation;
-               }
+            bEq.click(function(){               
+               calculation();
             })
 }
   

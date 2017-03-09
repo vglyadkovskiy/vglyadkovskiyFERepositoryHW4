@@ -13,44 +13,49 @@ var chb24 = $("#chb24");
 
 function chekRadio(){
    var radRes = 0;
-   if (rad11.prop("checked") == true){
+   if (rad11.prop("checked")){
       radRes += 1;
    }
-   if (rad23.prop("checked") == true){
+   if (rad23.prop("checked")){
       radRes += 1;
    }
-   if (rad34.prop("checked") == true){
+   if (rad34.prop("checked")){
       radRes += 1;
    }
    return radRes;
 }
 
+
+
+
 function chekChekBox(){
    var chbRes = 0;
-   if ((chb12.prop("checked") == true)&&(chb11.prop("checked") == false)&&(chb13.prop("checked") == false)&&(chb14.prop("checked") == false)){
+   if (chb12.prop("checked") && (!chb11.prop("checked")) && (!chb13.prop("checked")) && (!chb14.prop("checked"))){
       chbRes += 0.5;
    }
-   if ((chb13.prop("checked") == true)&&(chb11.prop("checked") == false)&&(chb12.prop("checked") == false)&&(chb14.prop("checked") == false)){
+   if (chb13.prop("checked") && (!chb11.prop("checked")) && (!chb12.prop("checked")) && (!chb14.prop("checked"))){
       chbRes += 0.5;
    }
-   if ((chb12.prop("checked") == true)&&(chb13.prop("checked") == true)&&(chb11.prop("checked") == false)&&(chb14.prop("checked") == false)){
+   if (chb12.prop("checked") && chb13.prop("checked") && (!chb11.prop("checked")) && (!chb14.prop("checked"))){
       chbRes += 1;
    }
-   if ((chb21.prop("checked") == true)&&(chb22.prop("checked") == false)&&(chb23.prop("checked") == false)&&(chb24.prop("checked") == false)){
+   if (chb21.prop("checked") && (!chb22.prop("checked")) && (!chb23.prop("checked")) && (!chb24.prop("checked"))){
       chbRes += 0.5;
    }
-   if ((chb22.prop("checked") == true)&&(chb21.prop("checked") == false)&&(chb23.prop("checked") == false)&&(chb24.prop("checked") == false)){
-      chbRes += 0.5;
+   if (chb22.prop("checked") && (!chb21.prop("checked")) && (!chb23.prop("checked")) && (!chb24.prop("checked"))){
+      chbRes += 0.5; 
    }
-   if ((chb21.prop("checked") == true)&&(chb22.prop("checked") == true)&&(chb23.prop("checked") == false)&&(chb24.prop("checked") == false)){
+   if (chb21.prop("checked") && chb22.prop("checked") && (!chb23.prop("checked")) && (!chb24.prop("checked"))){
       chbRes += 1;
    }
-   return chbRes;
+   
+   return chbRes;d
 }
 
 function clickResultButton(){
    
             bres.click(function(){
+              
                
                alert("Your RESULT: You score: " + (Number(chekRadio()) + Number(chekChekBox())) + " points. " + "You have " + (Number(chekRadio()) + Number(chekChekBox()))/5*100 + " % correct answers.");
             })
