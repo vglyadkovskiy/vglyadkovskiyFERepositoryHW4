@@ -49,7 +49,7 @@ function chekChekBox(){
       chbRes += 1;
    }
    
-   return chbRes;d
+   return chbRes;
 }
 
 function clickResultButton(){
